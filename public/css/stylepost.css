@@ -1,0 +1,439 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "responsive.css";
+@import "tailwind.css";
+@import "fonts.css";
+@import "colors.css";
+@import "scrollbar.css";
+@import url('https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp');
+
+html {
+    font-family: 'Work Sans', sans-serif;
+}
+
+body {
+    background-color: var(--content-background-light);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* .btn {
+    width: 165px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-radius: 6px;
+} */
+
+a {
+    text-decoration: none;
+    color: var(--primary-black);
+    transition: 0.2s;
+}
+
+
+/* main content */
+main {
+    width: calc(100% - 241px);
+    position: absolute;
+    left: 350px;
+    top: 69px;
+    padding: 32px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 48px;
+}
+
+section h1 {
+    margin-bottom: 32px;
+    font-size: 1.5rem;
+    line-height: 118%;
+    letter-spacing: 0.0025em;
+    font-weight: 600;
+    color: var(--primary-black);
+}
+
+
+section.about-book h1 {
+    font-size: 3rem;
+    line-height: 118%;
+    letter-spacing: 0.0025em;
+    font-weight: 600;
+}
+
+/* homepage - hero carousel */
+.carousel-open:checked+.carousel-item {
+    position: static;
+    opacity: 100;
+}
+
+.carousel-item {
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+
+.carousel-image-1 {
+    background-image: url('./images/hero/hero-1.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-image-2 {
+    background-image: url('./images/hero/hero-2.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-image-3 {
+    background-image: url('./images/hero/hero-3.svg');
+    background-size: cover;
+    background-position: center;
+}
+
+#carousel-1:checked~.control-1,
+#carousel-2:checked~.control-2,
+#carousel-3:checked~.control-3 {
+    display: block;
+}
+
+.carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+#carousel-1:checked~.control-1~.carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked~.control-2~.carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked~.control-3~.carousel-indicators li:nth-child(3) .carousel-bullet {
+    color: #2b6cb0;
+    /*Set to match the Tailwind colour you want the active one to be */
+}
+
+/* cards */
+.cards {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 24px;
+}
+
+.cards .card.buku {
+    padding: 0;
+}
+
+.cards .card.buku {
+    overflow: hidden;
+}
+
+.cards .card.buku .txt-content {
+    padding: 16px;
+    margin-top: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 6px;
+    background-color: var(--primary-white);
+    box-shadow: 0px 2px 16px rgba(64, 75, 105, 0.08);
+    transition: 0.2s;
+}
+
+.dark .card {
+    background-color: var(--background-component-2);
+}
+
+a .card:hover {
+    background-color: var(--background-component-2-light);
+    box-shadow: none;
+}
+
+a .card:hover p, a .card:hover h2 {
+    color: var(--component);
+}
+
+.dark a .card:hover {
+    background-color: var(--background-component);
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.card .txt-content {
+    margin-top: 16px;
+}
+
+.card .txt-content p {
+    margin-top: 4px;
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 0.0025em;
+    color: #666;
+}
+
+.dark .card .txt-content p {
+    color: var(--subtext);
+}
+
+.card .txt-content h2 {
+    font-size: 1rem;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    font-weight: 600;
+    color: var(--primary-black);
+}
+
+.dark .card .txt-content h2 {
+    color: var(--primary-white);
+}
+
+/* explore page - cards category */
+.cards-category {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    grid-gap: 24px;
+}
+
+.cards-category .card-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 54px 0;
+    border-radius: 6px;
+    font-size: 1.375rem;
+    line-height: 118%;
+    letter-spacing: 0.0025em;
+    font-weight: 600;
+    box-shadow: 0px 2px 16px rgba(64, 75, 105, 0.08);
+    background-color: var(--primary-white);
+    transition: 0.2s;
+}
+
+.dark .cards-category .card-category {
+    background: var(--background-component-2);
+    color: var(--primary-white);
+}
+
+.cards-category a .card-category:hover {
+    background-color: var(--background-component-light);
+    color: var(--component);
+    box-shadow: none;
+}
+
+.dark .cards-category a .card-category:hover {
+    background-color: var(--background-component);
+    color: var(--primary-white);
+}
+
+/* homepage - recent container */
+table {
+    border-collapse: separate;
+    border-spacing: 0 4px;
+}
+
+.recent-container table {
+    width: 100%;
+}
+
+.recent-container table th {
+    text-align: left;
+}
+
+.recent-container .line-separator {
+    width: 110%;
+    height: 1px;
+    background-color: var(--subtext);
+    margin-bottom: 8px;
+}
+
+.dark .recent-container .line-separator {
+    background-color: var(--background-component);
+}
+
+.head-table th {
+    font-size: 0.75rem;
+    line-height: 170%;
+    letter-spacing: 0.015em;
+    color: var(--primary-black);
+    padding: 8px;
+}
+
+.dark .head-table th {
+    color: var(--primary-white);
+}
+
+.recent-container .data td {
+    padding: 8px;
+    font-size: 1rem;
+    align-items: center;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    color: var(--primary-black);
+    vertical-align: middle;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dark .recent-container .data td {
+    color: var(--primary-white);
+}
+
+.recent-container .data td.title-thumb,
+.recent-container .data span.material-icons {
+    border-radius: 6px 0 0 6px;
+    display: flex;
+    gap: 16px;
+}
+
+.recent-container .data td.more {
+    border-radius: 0 6px 6px 0;
+}
+
+.recent-container tr.data:hover td {
+    background-color: var(--background-component-light);
+}
+
+.dark .recent-container tr.data:hover td {
+    background-color: var(--background-component-2);
+}
+
+/* button */
+.btn {
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 1.25px;
+    font-weight: 600;
+}
+
+/* reading-page - book info on sidebar */
+
+/* reading-page - reading font */
+
+.reading-page.paper {
+    font-family: 'PT Serif', serif;
+    text-align: justify;
+    letter-spacing: 0.02em;
+    color: #292929;
+}
+
+.reading-page.paper h1 {
+    font-size: 3rem;
+    line-height: 150%;
+    font-weight: 700;
+}
+
+.reading-page.paper h2 {
+    font-size: 1.5rem;
+    line-height: 32px;
+}
+
+.reading-page.paper p {
+    font-size: 1.125rem;
+    line-height: 40px;
+    text-indent: 32px;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none !important;
+    /* border: 2px solid var(--background-component-light); */
+    box-shadow: 0 0 4px var(--component);
+}
+
+/* author - author font */
+.author-info {
+    font-size: 1rem;
+    line-height: 200%;
+    letter-spacing: 0.005em;
+    font-weight: 400;
+}
+
+/* upload page */
+.upload-box {
+    width: 374px;
+    color: var(--primary-white);
+}
+
+.upload-box h3 {
+    font-size: 1rem;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    font-weight: 600;
+}
+
+.upload-box p {
+    font-size: 0.875rem;
+    line-height: 118%;
+    letter-spacing: 0.001em;
+    font-weight: 500;
+}
+
+.custom-file-filter.btn {
+    border-radius: 100px;
+}
+
+.form-wrapper .form {
+    display: flex;
+    flex-direction: column;
+    color: var(--background);
+    margin-bottom: 16px;
+}
+
+.form-wrapper .form label {
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 0.0025em;
+    color: var(--primary-black);
+    margin-bottom: 8px;
+}
+
+.dark .form-wrapper .form label {
+    color: var(--primary-white);
+}
+
+.form-wrapper .form input, .form-wrapper .form textarea,
+.form-wrapper .form select {
+    padding: 16px;
+    font-size: 1rem;
+    line-height: 150%;
+    letter-spacing: 0.005em;
+    border-radius: 6px;
+}
+
+.form-wrapper .form select {
+    color: var(--background);
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-wrapper .form textarea {
+    height: 640px;
+}
+
+.submit-btn {
+    font-size: 0.875rem;
+    line-height: 150%;
+    letter-spacing: 1.25px;
+    font-weight: 600;
+}
+.backto{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+}
